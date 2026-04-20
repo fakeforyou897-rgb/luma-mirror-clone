@@ -97,22 +97,22 @@ function Hero() {
           }}
         />
       ))}
-      <div className="relative z-10 text-center px-6 max-w-5xl">
-        <span className="inline-flex items-center gap-2 text-[10px] uppercase tracking-[0.4em] text-ivory/80 glass-card rounded-full px-5 py-2">
+      <div className="relative z-10 text-center px-5 sm:px-6 max-w-5xl">
+        <span className="inline-flex items-center gap-2 text-[9px] sm:text-[10px] uppercase tracking-[0.3em] sm:tracking-[0.4em] text-ivory/80 glass-card rounded-full px-4 sm:px-5 py-2">
           <span className="w-1.5 h-1.5 rounded-full bg-rose-gold animate-gentle-pulse" /> Luxury Natural Beauty
         </span>
-        <h1 className="mt-8 font-display text-6xl sm:text-7xl md:text-8xl lg:text-9xl leading-[0.95] text-balance text-ivory rose-gold-text-glow">
+        <h1 className="mt-6 sm:mt-8 font-display leading-[0.95] text-balance text-ivory rose-gold-text-glow" style={{ fontSize: "clamp(2.5rem, 10vw, 8rem)" }}>
           Discover Your<br />
           <em className="shimmer-text not-italic font-light italic">Natural Glow.</em>
         </h1>
-        <p className="mt-8 text-base md:text-lg text-muted-foreground max-w-xl mx-auto">
+        <p className="mt-6 sm:mt-8 text-sm sm:text-base md:text-lg text-muted-foreground max-w-xl mx-auto px-4">
           Premium skincare crafted with nature's finest ingredients for skin that radiates from within.
         </p>
-        <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
-          <a href="#products" className="shine-btn bg-primary text-primary-foreground text-xs uppercase tracking-[0.25em] rounded-full px-8 py-4 hover:opacity-90 transition rose-gold-glow">
+        <div className="mt-8 sm:mt-10 flex flex-wrap items-center justify-center gap-3 sm:gap-4">
+          <a href="#products" className="shine-btn bg-primary text-primary-foreground text-[10px] sm:text-xs uppercase tracking-[0.2em] sm:tracking-[0.25em] rounded-full px-6 sm:px-8 py-3 sm:py-4 hover:opacity-90 transition rose-gold-glow">
             Shop Now
           </a>
-          <a href="#about" className="glass-card text-ivory text-xs uppercase tracking-[0.25em] rounded-full px-8 py-4 hover:bg-surface-2 transition">
+          <a href="#about" className="glass-card text-ivory text-[10px] sm:text-xs uppercase tracking-[0.2em] sm:tracking-[0.25em] rounded-full px-6 sm:px-8 py-3 sm:py-4 hover:bg-surface-2 transition">
             Discover Products
           </a>
         </div>
