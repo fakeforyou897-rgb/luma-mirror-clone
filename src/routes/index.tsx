@@ -127,7 +127,7 @@ function Hero() {
 
 function Story() {
   return (
-    <section id="about" className="relative py-32 px-6 lg:px-10 max-w-7xl mx-auto overflow-hidden">
+    <section id="about" className="relative py-20 md:py-32 px-5 sm:px-6 lg:px-10 max-w-7xl mx-auto overflow-hidden">
       <div className="absolute top-0 right-0 w-[500px] h-[500px] pointer-events-none" style={{ background: "radial-gradient(circle, rgba(232,180,184,0.04) 0%, transparent 70%)" }} aria-hidden />
       <div className="grid lg:grid-cols-12 gap-16 items-start">
         <div className="lg:col-span-5 relative">
