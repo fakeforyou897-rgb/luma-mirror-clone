@@ -342,11 +342,13 @@ function Categories() {
         {categories.map((c) => (
           <a key={c.name} href="#products" className="product-card-hover group relative aspect-[3/4] rounded-3xl overflow-hidden block">
             <img src={c.img} alt={c.name} loading="lazy" width={1024} height={1280} className="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
-            <div className="absolute inset-0 bg-gradient-to-t from-background via-background/30 to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-transparent" />
             <div className="absolute inset-0 p-6 flex flex-col justify-end">
               <span className="text-[10px] uppercase tracking-[0.3em] text-rose-gold">{c.count} Products</span>
-              <h3 className="mt-1 font-display text-3xl text-ivory">{c.name}</h3>
-              <span className="mt-3 text-xs uppercase tracking-[0.2em] text-muted-foreground group-hover:text-ivory transition">Shop →</span>
+              <h3 className="mt-2 font-display text-3xl text-ivory">{c.name}</h3>
+              <span className="mt-4 text-[10px] uppercase tracking-[0.3em] text-muted-foreground group-hover:text-ivory transition inline-flex items-center gap-2">
+                Shop <span aria-hidden>→</span>
+              </span>
             </div>
           </a>
         ))}
