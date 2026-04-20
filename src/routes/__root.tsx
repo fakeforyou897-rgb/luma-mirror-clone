@@ -29,14 +29,14 @@ export const Route = createRootRoute({
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Lovable App" },
-      { name: "description", content: "Lovable Generated Project" },
-      { name: "author", content: "Lovable" },
-      { property: "og:title", content: "Lovable App" },
-      { property: "og:description", content: "Lovable Generated Project" },
+      { title: "Lumina Beauty — Discover Your Natural Glow" },
+      { name: "description", content: "Premium skincare crafted with nature's finest ingredients for skin that radiates from within." },
+      { name: "author", content: "Lumina Beauty" },
+      { property: "og:title", content: "Lumina Beauty — Discover Your Natural Glow" },
+      { property: "og:description", content: "Luxury natural beauty. Botanically sourced, dermatologist tested, cruelty-free." },
       { property: "og:type", content: "website" },
-      { name: "twitter:card", content: "summary" },
-      { name: "twitter:site", content: "@Lovable" },
+      { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:site", content: "@LuminaBeauty" },
     ],
     links: [
       {
