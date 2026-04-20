@@ -56,19 +56,19 @@ function Header() {
   }, []);
   return (
     <header className={`fixed top-0 inset-x-0 z-50 transition-all duration-500 ${scrolled ? "glass-card" : ""}`}>
-      <div className="max-w-7xl mx-auto px-6 lg:px-10 h-20 flex items-center justify-between">
+      <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-10 h-16 sm:h-20 flex items-center justify-between">
         <Logo />
-        <nav className="hidden md:flex items-center gap-10 text-xs uppercase tracking-[0.2em] text-muted-foreground">
+        <nav className="hidden md:flex items-center gap-8 lg:gap-10 text-xs uppercase tracking-[0.2em] text-muted-foreground">
           <a href="#products" className="hover:text-ivory transition">Products</a>
           <a href="#about" className="hover:text-ivory transition">About</a>
           <a href="#results" className="hover:text-ivory transition">Results</a>
           <a href="#newsletter" className="hover:text-ivory transition">Contact</a>
         </nav>
-        <div className="flex items-center gap-4">
+        <div className="flex items-center gap-3 sm:gap-4">
           <div className="hidden sm:flex items-center gap-2 text-xs tracking-widest border border-border rounded-full px-3 py-1.5 text-muted-foreground">
             <span className="text-ivory">EN</span><span>|</span><span>AR</span>
           </div>
-          <a href="#products" className="shine-btn bg-primary text-primary-foreground text-xs uppercase tracking-[0.2em] rounded-full px-5 py-3 hover:opacity-90 transition rose-gold-glow">
+          <a href="#products" className="shine-btn bg-primary text-primary-foreground text-[10px] sm:text-xs uppercase tracking-[0.2em] rounded-full px-4 sm:px-5 py-2.5 sm:py-3 hover:opacity-90 transition rose-gold-glow">
             Shop Now
           </a>
         </div>
@@ -129,7 +129,7 @@ function Story() {
   return (
     <section id="about" className="relative py-20 md:py-32 px-5 sm:px-6 lg:px-10 max-w-7xl mx-auto overflow-hidden">
       <div className="absolute top-0 right-0 w-[500px] h-[500px] pointer-events-none" style={{ background: "radial-gradient(circle, rgba(232,180,184,0.04) 0%, transparent 70%)" }} aria-hidden />
-      <div className="grid lg:grid-cols-12 gap-16 items-start">
+      <div className="grid lg:grid-cols-12 gap-10 md:gap-16 items-start">
         <div className="lg:col-span-5 relative">
           <div className="aspect-[3/4] rounded-3xl overflow-hidden group">
             <img
@@ -149,17 +149,17 @@ function Story() {
         </div>
         <div className="lg:col-span-7">
           <span className="text-[10px] uppercase tracking-[0.5em] text-rose-gold font-bold">Our Story</span>
-          <h2 className="mt-5 font-display text-5xl md:text-6xl lg:text-7xl text-balance leading-[0.95] text-ivory font-light">
+          <h2 className="mt-5 font-display text-balance leading-[0.95] text-ivory font-light" style={{ fontSize: "clamp(2.25rem, 6vw, 5rem)" }}>
             Born from Nature,<br />Refined by Science.
           </h2>
           <p className="mt-8 text-muted-foreground leading-relaxed max-w-xl font-light">
             Lumina Beauty was founded on a singular belief: that the most powerful beauty ingredients are found in nature. Every formula begins in our botanical laboratories, where ancient remedies meet modern dermatology to create products that don't just enhance your beauty — they reveal it.
           </p>
-          <div className="mt-12 grid grid-cols-3 gap-6 border-t border-border pt-10">
+          <div className="mt-10 md:mt-12 grid grid-cols-3 gap-4 sm:gap-6 border-t border-border pt-8 md:pt-10">
             {[["12+", "Years of Expertise"], ["97%", "Customer Satisfaction"], ["100%", "Natural Ingredients"]].map(([n, l]) => (
               <div key={l}>
-                <div className="font-display text-3xl md:text-4xl font-light text-rose-gold">{n}</div>
-                <div className="mt-2 text-[10px] font-bold uppercase tracking-widest text-muted-foreground">{l}</div>
+                <div className="font-display text-2xl sm:text-3xl md:text-4xl font-light text-rose-gold">{n}</div>
+                <div className="mt-2 text-[9px] sm:text-[10px] font-bold uppercase tracking-widest text-muted-foreground">{l}</div>
               </div>
             ))}
           </div>
@@ -171,13 +171,13 @@ function Story() {
 
 function Products() {
   return (
-    <section id="products" className="relative py-32 px-6 lg:px-10 max-w-7xl mx-auto">
-      <div className="text-center max-w-2xl mx-auto mb-20">
+    <section id="products" className="relative py-20 md:py-32 px-5 sm:px-6 lg:px-10 max-w-7xl mx-auto">
+      <div className="text-center max-w-2xl mx-auto mb-14 md:mb-20">
         <span className="text-[10px] uppercase tracking-[0.4em] text-rose-gold">Best Sellers</span>
-        <h2 className="mt-4 font-display text-5xl md:text-6xl text-ivory">Signature <em className="shimmer-text not-italic italic font-light">Collection.</em></h2>
-        <p className="mt-6 text-muted-foreground">Our most-loved formulas, trusted by thousands.</p>
+        <h2 className="mt-4 font-display text-ivory" style={{ fontSize: "clamp(2.25rem, 6vw, 4rem)" }}>Signature <em className="shimmer-text not-italic italic font-light">Collection.</em></h2>
+        <p className="mt-5 md:mt-6 text-sm md:text-base text-muted-foreground">Our most-loved formulas, trusted by thousands.</p>
       </div>
-      <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
         {products.map((p) => (
           <article key={p.name} className="product-card-hover group relative bg-surface border border-border rounded-3xl overflow-hidden">
             <div className="relative aspect-[4/5] overflow-hidden bg-background">
@@ -252,10 +252,10 @@ function Differences() {
     },
   ];
   return (
-    <section className="relative py-32 px-6 lg:px-10 max-w-7xl mx-auto">
-      <div className="text-center max-w-3xl mx-auto mb-20">
+    <section className="relative py-20 md:py-32 px-5 sm:px-6 lg:px-10 max-w-7xl mx-auto">
+      <div className="text-center max-w-3xl mx-auto mb-14 md:mb-20">
         <span className="text-[10px] uppercase tracking-[0.4em] text-rose-gold">Why Lumina</span>
-        <h2 className="mt-6 font-display text-6xl md:text-7xl lg:text-8xl text-ivory leading-[0.95]">
+        <h2 className="mt-5 md:mt-6 font-display text-ivory leading-[0.95]" style={{ fontSize: "clamp(2.5rem, 8vw, 6rem)" }}>
           The Lumina<br />Difference.
         </h2>
       </div>
@@ -293,11 +293,11 @@ function BeforeAfter() {
   }, []);
 
   return (
-    <section id="results" className="relative py-32 px-6 lg:px-10 max-w-6xl mx-auto">
-      <div className="text-center max-w-2xl mx-auto mb-16">
+    <section id="results" className="relative py-20 md:py-32 px-5 sm:px-6 lg:px-10 max-w-6xl mx-auto">
+      <div className="text-center max-w-2xl mx-auto mb-12 md:mb-16">
         <span className="text-[10px] uppercase tracking-[0.4em] text-rose-gold">Real Results</span>
-        <h2 className="mt-4 font-display text-5xl md:text-6xl text-ivory">Before <em className="shimmer-text not-italic italic font-light">& After.</em></h2>
-        <p className="mt-6 text-muted-foreground">Unretouched. Unfiltered. Real Lumina users, real transformations.</p>
+        <h2 className="mt-4 font-display text-ivory" style={{ fontSize: "clamp(2.25rem, 6vw, 4rem)" }}>Before <em className="shimmer-text not-italic italic font-light">& After.</em></h2>
+        <p className="mt-5 md:mt-6 text-sm md:text-base text-muted-foreground">Unretouched. Unfiltered. Real Lumina users, real transformations.</p>
       </div>
       <div
         ref={ref}
@@ -328,18 +328,18 @@ function BeforeAfter() {
 
 function Testimonial() {
   return (
-    <section className="relative py-32 px-6 lg:px-10 max-w-5xl mx-auto text-center">
+    <section className="relative py-20 md:py-32 px-5 sm:px-6 lg:px-10 max-w-5xl mx-auto text-center">
       <span className="text-[10px] uppercase tracking-[0.4em] text-rose-gold">Testimonials</span>
-      <h2 className="mt-4 font-display text-5xl md:text-6xl text-ivory">What Our Clients <em className="shimmer-text not-italic italic font-light">Say.</em></h2>
-      <div className="mt-16 relative glass-card rounded-3xl p-12 rose-gold-glow">
-        <span className="absolute -top-8 left-1/2 -translate-x-1/2 font-display text-9xl text-rose-gold leading-none">"</span>
-        <img src={testimonialImg} alt="Sarah Mitchell" loading="lazy" width={800} height={800} className="mx-auto w-20 h-20 rounded-full object-cover ring-2 ring-rose-gold" />
-        <p className="mt-8 font-display italic text-2xl md:text-3xl text-balance leading-snug text-ivory">
+      <h2 className="mt-4 font-display text-ivory" style={{ fontSize: "clamp(2.25rem, 6vw, 4rem)" }}>What Our Clients <em className="shimmer-text not-italic italic font-light">Say.</em></h2>
+      <div className="mt-12 md:mt-16 relative glass-card rounded-3xl p-8 sm:p-10 md:p-12 rose-gold-glow">
+        <span className="absolute -top-6 sm:-top-8 left-1/2 -translate-x-1/2 font-display text-7xl sm:text-9xl text-rose-gold leading-none">"</span>
+        <img src={testimonialImg} alt="Sarah Mitchell" loading="lazy" width={800} height={800} className="mx-auto w-16 h-16 sm:w-20 sm:h-20 rounded-full object-cover ring-2 ring-rose-gold" />
+        <p className="mt-6 sm:mt-8 font-display italic text-balance leading-snug text-ivory" style={{ fontSize: "clamp(1.125rem, 3vw, 1.875rem)" }}>
           "The Radiance Serum transformed my skin in just two weeks. I've never received so many compliments. Lumina is the only brand I trust."
         </p>
-        <div className="mt-8">
-          <div className="font-display text-xl text-ivory">Sarah Mitchell</div>
-          <div className="text-xs uppercase tracking-[0.3em] text-muted-foreground mt-1">New York, USA</div>
+        <div className="mt-6 sm:mt-8">
+          <div className="font-display text-lg sm:text-xl text-ivory">Sarah Mitchell</div>
+          <div className="text-[10px] uppercase tracking-[0.3em] text-muted-foreground mt-1">New York, USA</div>
         </div>
       </div>
     </section>
@@ -348,12 +348,12 @@ function Testimonial() {
 
 function Categories() {
   return (
-    <section className="relative py-32 px-6 lg:px-10 max-w-7xl mx-auto">
-      <div className="text-center max-w-2xl mx-auto mb-20">
+    <section className="relative py-20 md:py-32 px-5 sm:px-6 lg:px-10 max-w-7xl mx-auto">
+      <div className="text-center max-w-2xl mx-auto mb-14 md:mb-20">
         <span className="text-[10px] uppercase tracking-[0.4em] text-rose-gold">Shop by Category</span>
-        <h2 className="mt-4 font-display text-5xl md:text-6xl text-ivory">Explore the <em className="shimmer-text not-italic italic font-light">Collection.</em></h2>
+        <h2 className="mt-4 font-display text-ivory" style={{ fontSize: "clamp(2.25rem, 6vw, 4rem)" }}>Explore the <em className="shimmer-text not-italic italic font-light">Collection.</em></h2>
       </div>
-      <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5 md:gap-6">
         {categories.map((c) => (
           <a key={c.name} href="#products" className="product-card-hover group relative aspect-[3/4] rounded-3xl overflow-hidden block">
             <img src={c.img} alt={c.name} loading="lazy" width={1024} height={1280} className="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
@@ -374,14 +374,14 @@ function Categories() {
 
 function Newsletter() {
   return (
-    <section id="newsletter" className="relative py-32 px-5 overflow-hidden">
+    <section id="newsletter" className="relative py-20 md:py-32 px-5 sm:px-6 overflow-hidden">
       <div
         className="absolute inset-0 pointer-events-none"
         style={{ background: "radial-gradient(ellipse at 50% 50%, rgba(139,47,78,0.08) 0%, rgba(232,180,184,0.04) 40%, transparent 70%)" }}
         aria-hidden
       />
       <div className="max-w-4xl mx-auto relative z-10">
-        <div className="glass-card rounded-[2.5rem] p-12 md:p-20 text-center relative overflow-hidden">
+        <div className="glass-card rounded-[2rem] md:rounded-[2.5rem] p-8 sm:p-12 md:p-20 text-center relative overflow-hidden">
           {/* Corner accent brackets */}
           <div className="absolute top-6 left-6 w-12 h-12 border-t border-l border-rose-gold/20 rounded-tl-2xl pointer-events-none" />
           <div className="absolute top-6 right-6 w-12 h-12 border-t border-r border-rose-gold/20 rounded-tr-2xl pointer-events-none" />
