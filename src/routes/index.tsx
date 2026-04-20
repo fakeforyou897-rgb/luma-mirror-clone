@@ -127,29 +127,39 @@ function Hero() {
 
 function Story() {
   return (
-    <section id="about" className="relative py-32 px-6 lg:px-10 max-w-7xl mx-auto">
-      <div className="grid md:grid-cols-2 gap-16 items-center">
-        <div className="relative">
-          <img src={storyImg} alt="Elegant woman with luminous glowing skin" loading="lazy" width={1024} height={1280} className="w-full h-[640px] object-cover rounded-3xl" />
+    <section id="about" className="relative py-32 px-6 lg:px-10 max-w-7xl mx-auto overflow-hidden">
+      <div className="absolute top-0 right-0 w-[500px] h-[500px] pointer-events-none" style={{ background: "radial-gradient(circle, rgba(232,180,184,0.04) 0%, transparent 70%)" }} aria-hidden />
+      <div className="grid lg:grid-cols-12 gap-16 items-start">
+        <div className="lg:col-span-5 relative">
+          <div className="aspect-[3/4] rounded-3xl overflow-hidden group">
+            <img
+              src={storyImg}
+              alt="Elegant woman with luminous glowing skin in warm golden light"
+              loading="lazy"
+              width={1024}
+              height={1365}
+              className="w-full h-full object-cover grayscale-[0.2] sepia-[0.1] group-hover:grayscale-0 group-hover:sepia-0 group-hover:scale-[1.03] transition-all duration-1000"
+            />
+          </div>
           <div className="absolute -bottom-8 -right-8 hidden md:block max-w-xs glass-card rounded-2xl p-6 rose-gold-glow">
             <p className="font-display italic text-lg leading-snug text-ivory">
               "Beauty is not about perfection. It's about confidence in your own luminous skin."
             </p>
           </div>
         </div>
-        <div>
-          <span className="text-[10px] uppercase tracking-[0.4em] text-rose-gold">Our Story</span>
-          <h2 className="mt-4 font-display text-5xl md:text-6xl text-balance leading-[1.05] text-ivory">
-            Born from Nature,<br /><em className="shimmer-text not-italic italic font-light">Refined by Science.</em>
+        <div className="lg:col-span-7">
+          <span className="text-[10px] uppercase tracking-[0.5em] text-rose-gold font-bold">Our Story</span>
+          <h2 className="mt-5 font-display text-5xl md:text-6xl lg:text-7xl text-balance leading-[0.95] text-ivory font-light">
+            Born from Nature,<br />Refined by Science.
           </h2>
-          <p className="mt-8 text-muted-foreground leading-relaxed">
+          <p className="mt-8 text-muted-foreground leading-relaxed max-w-xl font-light">
             Lumina Beauty was founded on a singular belief: that the most powerful beauty ingredients are found in nature. Every formula begins in our botanical laboratories, where ancient remedies meet modern dermatology to create products that don't just enhance your beauty — they reveal it.
           </p>
           <div className="mt-12 grid grid-cols-3 gap-6 border-t border-border pt-10">
             {[["12+", "Years of Expertise"], ["97%", "Customer Satisfaction"], ["100%", "Natural Ingredients"]].map(([n, l]) => (
               <div key={l}>
-                <div className="font-display text-4xl text-champagne">{n}</div>
-                <div className="mt-2 text-xs uppercase tracking-widest text-muted-foreground">{l}</div>
+                <div className="font-display text-3xl md:text-4xl font-light text-rose-gold">{n}</div>
+                <div className="mt-2 text-[10px] font-bold uppercase tracking-widest text-muted-foreground">{l}</div>
               </div>
             ))}
           </div>
