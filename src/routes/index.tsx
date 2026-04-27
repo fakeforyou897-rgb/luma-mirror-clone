@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { Reveal } from "@/components/Reveal";
+import { SmartImage } from "@/components/SmartImage";
 import heroImg from "@/assets/hero.webp";
 import storyImg from "@/assets/story.webp";
 import pSerum from "@/assets/p-serum.webp";
