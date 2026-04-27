@@ -334,9 +334,11 @@ function BeforeAfter() {
 function Testimonial() {
   return (
     <section className="relative py-20 md:py-32 px-5 sm:px-6 lg:px-10 max-w-5xl mx-auto text-center">
-      <span className="text-[10px] uppercase tracking-[0.4em] text-rose-gold">Testimonials</span>
-      <h2 className="mt-4 font-display text-ivory" style={{ fontSize: "clamp(2.25rem, 6vw, 4rem)" }}>What Our Clients <em className="shimmer-text not-italic italic font-light">Say.</em></h2>
-      <div className="mt-12 md:mt-16 relative glass-card rounded-3xl p-8 sm:p-10 md:p-12 rose-gold-glow">
+      <Reveal>
+        <span className="text-[10px] uppercase tracking-[0.4em] text-rose-gold">Testimonials</span>
+        <h2 className="mt-4 font-display text-ivory" style={{ fontSize: "clamp(2.25rem, 6vw, 4rem)" }}>What Our Clients <em className="shimmer-text not-italic italic font-light">Say.</em></h2>
+      </Reveal>
+      <Reveal variant="scale" delay={120} className="mt-12 md:mt-16 relative glass-card rounded-3xl p-8 sm:p-10 md:p-12 rose-gold-glow">
         <span className="absolute -top-6 sm:-top-8 left-1/2 -translate-x-1/2 font-display text-7xl sm:text-9xl text-rose-gold leading-none">"</span>
         <img src={testimonialImg} alt="Sarah Mitchell" loading="lazy" width={800} height={800} className="mx-auto w-16 h-16 sm:w-20 sm:h-20 rounded-full object-cover ring-2 ring-rose-gold" />
         <p className="mt-6 sm:mt-8 font-display italic text-balance leading-snug text-ivory" style={{ fontSize: "clamp(1.125rem, 3vw, 1.875rem)" }}>
@@ -346,7 +348,7 @@ function Testimonial() {
           <div className="font-display text-lg sm:text-xl text-ivory">Sarah Mitchell</div>
           <div className="text-[10px] uppercase tracking-[0.3em] text-muted-foreground mt-1">New York, USA</div>
         </div>
-      </div>
+      </Reveal>
     </section>
   );
 }
