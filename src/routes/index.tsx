@@ -1,21 +1,21 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { Reveal } from "@/components/Reveal";
-import heroImg from "@/assets/hero.jpg";
-import storyImg from "@/assets/story.jpg";
-import pSerum from "@/assets/p-serum.jpg";
-import pLip from "@/assets/p-lip.jpg";
-import pCream from "@/assets/p-cream.jpg";
-import pBronzer from "@/assets/p-bronzer.jpg";
-import pToner from "@/assets/p-toner.jpg";
-import pMask from "@/assets/p-mask.jpg";
-import beforeImg from "@/assets/before.jpg";
-import afterImg from "@/assets/after.jpg";
-import testimonialImg from "@/assets/testimonial.jpg";
-import catSkincare from "@/assets/cat-skincare.jpg";
-import catMakeup from "@/assets/cat-makeup.jpg";
-import catHair from "@/assets/cat-hair.jpg";
-import catBody from "@/assets/cat-body.jpg";
+import heroImg from "@/assets/hero.webp";
+import storyImg from "@/assets/story.webp";
+import pSerum from "@/assets/p-serum.webp";
+import pLip from "@/assets/p-lip.webp";
+import pCream from "@/assets/p-cream.webp";
+import pBronzer from "@/assets/p-bronzer.webp";
+import pToner from "@/assets/p-toner.webp";
+import pMask from "@/assets/p-mask.webp";
+import beforeImg from "@/assets/before.webp";
+import afterImg from "@/assets/after.webp";
+import testimonialImg from "@/assets/testimonial.webp";
+import catSkincare from "@/assets/cat-skincare.webp";
+import catMakeup from "@/assets/cat-makeup.webp";
+import catHair from "@/assets/cat-hair.webp";
+import catBody from "@/assets/cat-body.webp";
 
 export const Route = createFileRoute("/")({
   component: LuminaHome,
