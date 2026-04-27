@@ -17,8 +17,70 @@ import catMakeup from "@/assets/cat-makeup.webp";
 import catHair from "@/assets/cat-hair.webp";
 import catBody from "@/assets/cat-body.webp";
 
+const SITE_URL = "https://luma-clone-buddy.lovable.app";
+const PAGE_TITLE = "Lumina Beauty — Luxury Natural Skincare for Radiant, Glowing Skin";
+const PAGE_DESC = "Discover Lumina Beauty: luxury natural skincare with botanical actives, vitamin C, and rose hip oil. Cruelty-free, dermatologist-tested formulas — visible glow in 14 days.";
+
 export const Route = createFileRoute("/")({
   component: LuminaHome,
+  head: () => ({
+    meta: [
+      { title: PAGE_TITLE },
+      { name: "description", content: PAGE_DESC },
+      { property: "og:title", content: PAGE_TITLE },
+      { property: "og:description", content: PAGE_DESC },
+      { property: "og:url", content: SITE_URL },
+      { property: "og:image", content: `${SITE_URL}${heroImg}` },
+      { property: "og:image:alt", content: "Lumina Beauty — Discover Your Natural Glow" },
+      { name: "twitter:title", content: PAGE_TITLE },
+      { name: "twitter:description", content: PAGE_DESC },
+      { name: "twitter:image", content: `${SITE_URL}${heroImg}` },
+    ],
+    links: [
+      { rel: "canonical", href: SITE_URL },
+      { rel: "preload", as: "image", href: heroImg, fetchpriority: "high" },
+    ],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@graph": [
+            {
+              "@type": "Organization",
+              "@id": `${SITE_URL}#organization`,
+              name: "Lumina Beauty",
+              url: SITE_URL,
+              logo: `${SITE_URL}/favicon.ico`,
+              sameAs: [
+                "https://instagram.com/luminabeauty",
+                "https://pinterest.com/luminabeauty",
+                "https://tiktok.com/@luminabeauty",
+              ],
+            },
+            {
+              "@type": "WebSite",
+              "@id": `${SITE_URL}#website`,
+              url: SITE_URL,
+              name: "Lumina Beauty",
+              description: PAGE_DESC,
+              publisher: { "@id": `${SITE_URL}#organization` },
+              inLanguage: "en-US",
+            },
+            {
+              "@type": "ItemList",
+              name: "Signature Collection",
+              itemListElement: [
+                { "@type": "Product", name: "Radiance Glow Serum", category: "Skincare", description: "Vitamin C + Rose Hip Oil complex", offers: { "@type": "Offer", price: 78, priceCurrency: "USD", availability: "https://schema.org/InStock" } },
+                { "@type": "Product", name: "Velvet Lip Elixir", category: "Makeup", description: "Hydrating shea + natural pigments", offers: { "@type": "Offer", price: 42, priceCurrency: "USD", availability: "https://schema.org/InStock" } },
+                { "@type": "Product", name: "Pearl Luminosity Cream", category: "Skincare", description: "Pearl extract + hyaluronic acid", offers: { "@type": "Offer", price: 95, priceCurrency: "USD", availability: "https://schema.org/InStock" } },
+              ],
+            },
+          ],
+        }),
+      },
+    ],
+  }),
 });
 
 const products = [
