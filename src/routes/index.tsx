@@ -421,7 +421,7 @@ function Newsletter() {
             </div>
             <p className="text-[10px] text-muted-foreground/60 mt-4 uppercase tracking-widest">No spam, ever. Unsubscribe anytime.</p>
           </form>
-        </div>
+        </Reveal>
       </div>
     </section>
   );
