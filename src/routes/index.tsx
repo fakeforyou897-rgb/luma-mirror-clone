@@ -426,7 +426,7 @@ function Categories() {
       <Reveal stagger className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5 md:gap-6">
         {categories.map((c) => (
           <a key={c.name} href="#products" className="product-card-hover group relative aspect-[3/4] rounded-3xl overflow-hidden block">
-            <img src={c.img} alt={c.alt} loading="lazy" width={1024} height={1280} className="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
+            <SmartImage src={c.img} alt={c.alt} width={1024} height={1280} wrapperClassName="absolute inset-0 w-full h-full" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
             <div className="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-transparent" />
             <div className="absolute inset-0 p-6 flex flex-col justify-end">
               <span className="text-[10px] uppercase tracking-[0.3em] text-rose-gold">{c.count} Products</span>
