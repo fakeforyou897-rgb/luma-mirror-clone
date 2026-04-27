@@ -143,7 +143,7 @@ function Header() {
 function Hero() {
   return (
     <section id="top" className="relative min-h-screen w-full overflow-hidden flex items-center justify-center">
-      <img src={heroImg} alt="Luxury beauty model with luminous glowing skin" className="absolute inset-0 w-full h-full object-cover" width={1920} height={1080} />
+      <img src={heroImg} alt="Luxury beauty model with luminous glowing skin — Lumina Beauty" className="absolute inset-0 w-full h-full object-cover" width={1920} height={1080} fetchPriority="high" decoding="async" />
       <div className="absolute inset-0 bg-gradient-to-b from-background/40 via-background/20 to-background" />
       {/* Floating particles */}
       {[...Array(14)].map((_, i) => (
