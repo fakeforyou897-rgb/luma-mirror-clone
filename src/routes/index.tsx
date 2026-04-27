@@ -356,11 +356,11 @@ function Testimonial() {
 function Categories() {
   return (
     <section className="relative py-20 md:py-32 px-5 sm:px-6 lg:px-10 max-w-7xl mx-auto">
-      <div className="text-center max-w-2xl mx-auto mb-14 md:mb-20">
+      <Reveal className="text-center max-w-2xl mx-auto mb-14 md:mb-20">
         <span className="text-[10px] uppercase tracking-[0.4em] text-rose-gold">Shop by Category</span>
         <h2 className="mt-4 font-display text-ivory" style={{ fontSize: "clamp(2.25rem, 6vw, 4rem)" }}>Explore the <em className="shimmer-text not-italic italic font-light">Collection.</em></h2>
-      </div>
-      <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5 md:gap-6">
+      </Reveal>
+      <Reveal stagger className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5 md:gap-6">
         {categories.map((c) => (
           <a key={c.name} href="#products" className="product-card-hover group relative aspect-[3/4] rounded-3xl overflow-hidden block">
             <img src={c.img} alt={c.name} loading="lazy" width={1024} height={1280} className="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
@@ -374,7 +374,7 @@ function Categories() {
             </div>
           </a>
         ))}
-      </div>
+      </Reveal>
     </section>
   );
 }
