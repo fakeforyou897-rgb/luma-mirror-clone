@@ -246,7 +246,7 @@ function Products() {
         {products.map((p) => (
           <article key={p.name} className="product-card-hover group relative bg-surface border border-border rounded-3xl overflow-hidden">
             <div className="relative aspect-[4/5] overflow-hidden bg-background">
-              <img src={p.img} alt={p.name} loading="lazy" width={800} height={1024} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+              <img src={p.img} alt={p.alt} loading="lazy" width={800} height={1024} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
               {p.badge && (
                 <span className="absolute top-4 left-4 text-[10px] uppercase tracking-[0.2em] bg-primary text-primary-foreground rounded-full px-3 py-1.5">
                   {p.badge}
@@ -374,9 +374,9 @@ function BeforeAfter() {
           onTouchMove={(e) => updateFromX(e.touches[0].clientX)}
           onTouchEnd={() => setDragging(false)}
         >
-          <img src={afterImg} alt="After 14 days" loading="lazy" width={1024} height={1280} className="absolute inset-0 w-full h-full object-cover pointer-events-none" />
+          <img src={afterImg} alt="Lumina Radiance Serum after 14 days — visible glow and even skin tone" loading="lazy" width={1024} height={1280} className="absolute inset-0 w-full h-full object-cover pointer-events-none" />
           <div className="absolute inset-0 overflow-hidden pointer-events-none" style={{ width: `${pos}%` }}>
-            <img src={beforeImg} alt="Before" loading="lazy" width={1024} height={1280} className="absolute inset-0 h-full object-cover" style={{ width: `${(100 / pos) * 100}%`, maxWidth: "none" }} />
+            <img src={beforeImg} alt="Skin before using Lumina Radiance Serum — uneven tone and dullness" loading="lazy" width={1024} height={1280} className="absolute inset-0 h-full object-cover" style={{ width: `${(100 / pos) * 100}%`, maxWidth: "none" }} />
           </div>
           <span className="absolute top-6 left-1/2 -translate-x-1/2 text-[10px] uppercase tracking-[0.3em] glass-card rounded-full px-4 py-2 text-ivory pointer-events-none">Drag to Compare</span>
           <span className="absolute bottom-6 left-6 text-[10px] uppercase tracking-[0.3em] glass-card rounded-full px-4 py-2 text-ivory pointer-events-none">Before</span>
@@ -402,7 +402,7 @@ function Testimonial() {
       </Reveal>
       <Reveal variant="scale" delay={120} className="mt-12 md:mt-16 relative glass-card rounded-3xl p-8 sm:p-10 md:p-12 rose-gold-glow">
         <span className="absolute -top-6 sm:-top-8 left-1/2 -translate-x-1/2 font-display text-7xl sm:text-9xl text-rose-gold leading-none">"</span>
-        <img src={testimonialImg} alt="Sarah Mitchell" loading="lazy" width={800} height={800} className="mx-auto w-16 h-16 sm:w-20 sm:h-20 rounded-full object-cover ring-2 ring-rose-gold" />
+        <img src={testimonialImg} alt="Sarah Mitchell, verified Lumina Beauty customer from New York" loading="lazy" width={800} height={800} className="mx-auto w-16 h-16 sm:w-20 sm:h-20 rounded-full object-cover ring-2 ring-rose-gold" />
         <p className="mt-6 sm:mt-8 font-display italic text-balance leading-snug text-ivory" style={{ fontSize: "clamp(1.125rem, 3vw, 1.875rem)" }}>
           "The Radiance Serum transformed my skin in just two weeks. I've never received so many compliments. Lumina is the only brand I trust."
         </p>
@@ -425,7 +425,7 @@ function Categories() {
       <Reveal stagger className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5 md:gap-6">
         {categories.map((c) => (
           <a key={c.name} href="#products" className="product-card-hover group relative aspect-[3/4] rounded-3xl overflow-hidden block">
-            <img src={c.img} alt={c.name} loading="lazy" width={1024} height={1280} className="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
+            <img src={c.img} alt={c.alt} loading="lazy" width={1024} height={1280} className="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
             <div className="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-transparent" />
             <div className="absolute inset-0 p-6 flex flex-col justify-end">
               <span className="text-[10px] uppercase tracking-[0.3em] text-rose-gold">{c.count} Products</span>
