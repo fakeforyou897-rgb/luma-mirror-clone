@@ -197,12 +197,12 @@ function Story() {
         <Reveal variant="left" className="lg:col-span-5 relative">
           <div className="aspect-[3/4] rounded-3xl overflow-hidden group">
             <Reveal variant="zoom" as="div" className="w-full h-full">
-              <img
+              <SmartImage
                 src={storyImg}
-                alt="Elegant woman with luminous glowing skin in warm golden light"
-                loading="lazy"
+                alt="Founder of Lumina Beauty — elegant woman with luminous, glowing skin in warm golden light"
                 width={1024}
                 height={1365}
+                wrapperClassName="w-full h-full"
                 className="w-full h-full object-cover grayscale-[0.2] sepia-[0.1] group-hover:grayscale-0 group-hover:sepia-0 group-hover:scale-[1.03] transition-all duration-1000"
               />
             </Reveal>
