@@ -1,24 +1,86 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { Reveal } from "@/components/Reveal";
-import heroImg from "@/assets/hero.jpg";
-import storyImg from "@/assets/story.jpg";
-import pSerum from "@/assets/p-serum.jpg";
-import pLip from "@/assets/p-lip.jpg";
-import pCream from "@/assets/p-cream.jpg";
-import pBronzer from "@/assets/p-bronzer.jpg";
-import pToner from "@/assets/p-toner.jpg";
-import pMask from "@/assets/p-mask.jpg";
-import beforeImg from "@/assets/before.jpg";
-import afterImg from "@/assets/after.jpg";
-import testimonialImg from "@/assets/testimonial.jpg";
-import catSkincare from "@/assets/cat-skincare.jpg";
-import catMakeup from "@/assets/cat-makeup.jpg";
-import catHair from "@/assets/cat-hair.jpg";
-import catBody from "@/assets/cat-body.jpg";
+import heroImg from "@/assets/hero.webp";
+import storyImg from "@/assets/story.webp";
+import pSerum from "@/assets/p-serum.webp";
+import pLip from "@/assets/p-lip.webp";
+import pCream from "@/assets/p-cream.webp";
+import pBronzer from "@/assets/p-bronzer.webp";
+import pToner from "@/assets/p-toner.webp";
+import pMask from "@/assets/p-mask.webp";
+import beforeImg from "@/assets/before.webp";
+import afterImg from "@/assets/after.webp";
+import testimonialImg from "@/assets/testimonial.webp";
+import catSkincare from "@/assets/cat-skincare.webp";
+import catMakeup from "@/assets/cat-makeup.webp";
+import catHair from "@/assets/cat-hair.webp";
+import catBody from "@/assets/cat-body.webp";
+
+const SITE_URL = "https://luma-clone-buddy.lovable.app";
+const PAGE_TITLE = "Lumina Beauty — Luxury Natural Skincare for Radiant, Glowing Skin";
+const PAGE_DESC = "Discover Lumina Beauty: luxury natural skincare with botanical actives, vitamin C, and rose hip oil. Cruelty-free, dermatologist-tested formulas — visible glow in 14 days.";
 
 export const Route = createFileRoute("/")({
   component: LuminaHome,
+  head: () => ({
+    meta: [
+      { title: PAGE_TITLE },
+      { name: "description", content: PAGE_DESC },
+      { property: "og:title", content: PAGE_TITLE },
+      { property: "og:description", content: PAGE_DESC },
+      { property: "og:url", content: SITE_URL },
+      { property: "og:image", content: `${SITE_URL}${heroImg}` },
+      { property: "og:image:alt", content: "Lumina Beauty — Discover Your Natural Glow" },
+      { name: "twitter:title", content: PAGE_TITLE },
+      { name: "twitter:description", content: PAGE_DESC },
+      { name: "twitter:image", content: `${SITE_URL}${heroImg}` },
+    ],
+    links: [
+      { rel: "canonical", href: SITE_URL },
+      { rel: "preload", as: "image", href: heroImg, fetchpriority: "high" },
+    ],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@graph": [
+            {
+              "@type": "Organization",
+              "@id": `${SITE_URL}#organization`,
+              name: "Lumina Beauty",
+              url: SITE_URL,
+              logo: `${SITE_URL}/favicon.ico`,
+              sameAs: [
+                "https://instagram.com/luminabeauty",
+                "https://pinterest.com/luminabeauty",
+                "https://tiktok.com/@luminabeauty",
+              ],
+            },
+            {
+              "@type": "WebSite",
+              "@id": `${SITE_URL}#website`,
+              url: SITE_URL,
+              name: "Lumina Beauty",
+              description: PAGE_DESC,
+              publisher: { "@id": `${SITE_URL}#organization` },
+              inLanguage: "en-US",
+            },
+            {
+              "@type": "ItemList",
+              name: "Signature Collection",
+              itemListElement: [
+                { "@type": "Product", name: "Radiance Glow Serum", category: "Skincare", description: "Vitamin C + Rose Hip Oil complex", offers: { "@type": "Offer", price: 78, priceCurrency: "USD", availability: "https://schema.org/InStock" } },
+                { "@type": "Product", name: "Velvet Lip Elixir", category: "Makeup", description: "Hydrating shea + natural pigments", offers: { "@type": "Offer", price: 42, priceCurrency: "USD", availability: "https://schema.org/InStock" } },
+                { "@type": "Product", name: "Pearl Luminosity Cream", category: "Skincare", description: "Pearl extract + hyaluronic acid", offers: { "@type": "Offer", price: 95, priceCurrency: "USD", availability: "https://schema.org/InStock" } },
+              ],
+            },
+          ],
+        }),
+      },
+    ],
+  }),
 });
 
 const products = [
@@ -81,7 +143,7 @@ function Header() {
 function Hero() {
   return (
     <section id="top" className="relative min-h-screen w-full overflow-hidden flex items-center justify-center">
-      <img src={heroImg} alt="Luxury beauty model with luminous glowing skin" className="absolute inset-0 w-full h-full object-cover" width={1920} height={1080} />
+      <img src={heroImg} alt="Luxury beauty model with luminous glowing skin — Lumina Beauty" className="absolute inset-0 w-full h-full object-cover" width={1920} height={1080} fetchPriority="high" decoding="async" />
       <div className="absolute inset-0 bg-gradient-to-b from-background/40 via-background/20 to-background" />
       {/* Floating particles */}
       {[...Array(14)].map((_, i) => (
