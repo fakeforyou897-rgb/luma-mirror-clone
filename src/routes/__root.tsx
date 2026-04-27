@@ -33,10 +33,14 @@ export const Route = createRootRoute({
       { name: "description", content: "Premium skincare crafted with nature's finest ingredients for skin that radiates from within." },
       { name: "author", content: "Lumina Beauty" },
       { property: "og:title", content: "Lumina Beauty — Discover Your Natural Glow" },
-      { property: "og:description", content: "Luxury natural beauty. Botanically sourced, dermatologist tested, cruelty-free." },
+      { property: "og:description", content: "Premium skincare crafted with nature's finest ingredients for skin that radiates from within." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:site", content: "@LuminaBeauty" },
+      { name: "twitter:title", content: "Lumina Beauty — Discover Your Natural Glow" },
+      { name: "twitter:description", content: "Premium skincare crafted with nature's finest ingredients for skin that radiates from within." },
+      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/14dbb5cc-fce9-43ac-97b5-ed942c53456f/id-preview-d67a4cf4--ca899447-29bc-415d-9464-ebcffe21d689.lovable.app-1776658293113.png" },
+      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/14dbb5cc-fce9-43ac-97b5-ed942c53456f/id-preview-d67a4cf4--ca899447-29bc-415d-9464-ebcffe21d689.lovable.app-1776658293113.png" },
     ],
     links: [
       {
