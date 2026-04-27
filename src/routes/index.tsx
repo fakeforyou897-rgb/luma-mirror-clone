@@ -247,7 +247,7 @@ function Products() {
         {products.map((p) => (
           <article key={p.name} className="product-card-hover group relative bg-surface border border-border rounded-3xl overflow-hidden">
             <div className="relative aspect-[4/5] overflow-hidden bg-background">
-              <img src={p.img} alt={p.alt} loading="lazy" width={800} height={1024} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+              <SmartImage src={p.img} alt={p.alt} width={800} height={1024} wrapperClassName="w-full h-full" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
               {p.badge && (
                 <span className="absolute top-4 left-4 text-[10px] uppercase tracking-[0.2em] bg-primary text-primary-foreground rounded-full px-3 py-1.5">
                   {p.badge}
