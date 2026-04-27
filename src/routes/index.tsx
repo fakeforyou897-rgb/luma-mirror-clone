@@ -70,12 +70,21 @@ export const Route = createFileRoute("/")({
             },
             {
               "@type": "ItemList",
-              name: "Signature Collection",
-              itemListElement: [
-                { "@type": "Product", name: "Radiance Glow Serum", category: "Skincare", description: "Vitamin C + Rose Hip Oil complex", offers: { "@type": "Offer", price: 78, priceCurrency: "USD", availability: "https://schema.org/InStock" } },
-                { "@type": "Product", name: "Velvet Lip Elixir", category: "Makeup", description: "Hydrating shea + natural pigments", offers: { "@type": "Offer", price: 42, priceCurrency: "USD", availability: "https://schema.org/InStock" } },
-                { "@type": "Product", name: "Pearl Luminosity Cream", category: "Skincare", description: "Pearl extract + hyaluronic acid", offers: { "@type": "Offer", price: 95, priceCurrency: "USD", availability: "https://schema.org/InStock" } },
-              ],
+              name: "Lumina Beauty Signature Collection",
+              itemListElement: products.map((p, i) => ({
+                "@type": "ListItem",
+                position: i + 1,
+                item: {
+                  "@type": "Product",
+                  name: p.name,
+                  category: p.category,
+                  description: p.desc,
+                  image: `${SITE_URL}${p.img}`,
+                  url: `${SITE_URL}/products/${p.slug}`,
+                  brand: { "@type": "Brand", name: "Lumina Beauty" },
+                  offers: { "@type": "Offer", price: p.price, priceCurrency: "USD", availability: "https://schema.org/InStock", url: `${SITE_URL}/products/${p.slug}` },
+                },
+              })),
             },
           ],
         }),
