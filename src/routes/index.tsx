@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { Reveal } from "@/components/Reveal";
+import { SmartImage } from "@/components/SmartImage";
 import heroImg from "@/assets/hero.webp";
 import storyImg from "@/assets/story.webp";
 import pSerum from "@/assets/p-serum.webp";
@@ -20,6 +21,22 @@ import catBody from "@/assets/cat-body.webp";
 const SITE_URL = "https://luma-clone-buddy.lovable.app";
 const PAGE_TITLE = "Lumina Beauty — Luxury Natural Skincare for Radiant, Glowing Skin";
 const PAGE_DESC = "Discover Lumina Beauty: luxury natural skincare with botanical actives, vitamin C, and rose hip oil. Cruelty-free, dermatologist-tested formulas — visible glow in 14 days.";
+
+const products = [
+  { img: pSerum, badge: "Best Seller", category: "Skincare", name: "Radiance Glow Serum", desc: "Vitamin C + Rose Hip Oil complex", price: 78, alt: "Radiance Glow Serum bottle with vitamin C and rose hip oil — Lumina Beauty skincare", slug: "radiance-glow-serum" },
+  { img: pLip, badge: "New", category: "Makeup", name: "Velvet Lip Elixir", desc: "Hydrating shea + natural pigments", price: 42, alt: "Velvet Lip Elixir tube with hydrating shea butter and natural pigments — Lumina Beauty", slug: "velvet-lip-elixir" },
+  { img: pCream, badge: "Award Winner", category: "Skincare", name: "Pearl Luminosity Cream", desc: "Pearl extract + hyaluronic acid", price: 95, alt: "Pearl Luminosity Cream jar with pearl extract and hyaluronic acid — Lumina Beauty", slug: "pearl-luminosity-cream" },
+  { img: pBronzer, badge: "Trending", category: "Makeup", name: "Golden Hour Bronzer", desc: "Micro-shimmer + mineral pigments", price: 55, alt: "Golden Hour Bronzer compact with micro-shimmer mineral pigments — Lumina Beauty", slug: "golden-hour-bronzer" },
+  { img: pToner, badge: null, category: "Skincare", name: "Rose Petal Toner", desc: "Damascena rose water + niacinamide", price: 48, alt: "Rose Petal Toner bottle with Damascena rose water and niacinamide — Lumina Beauty", slug: "rose-petal-toner" },
+  { img: pMask, badge: "Limited", category: "Skincare", name: "Midnight Repair Mask", desc: "Retinol + black pearl + squalane", price: 88, alt: "Midnight Repair Mask jar with retinol, black pearl and squalane — Lumina Beauty", slug: "midnight-repair-mask" },
+];
+
+const categories = [
+  { img: catSkincare, count: 42, name: "Skincare", alt: "Lumina Beauty skincare collection — serums, creams and toners for radiant skin" },
+  { img: catMakeup, count: 28, name: "Makeup", alt: "Lumina Beauty makeup collection — lip elixirs, bronzers and natural pigments" },
+  { img: catHair, count: 19, name: "Hair Care", alt: "Lumina Beauty hair care collection — botanical shampoos and luminous treatments" },
+  { img: catBody, count: 15, name: "Body Care", alt: "Lumina Beauty body care collection — natural lotions and nourishing oils" },
+];
 
 export const Route = createFileRoute("/")({
   component: LuminaHome,
@@ -69,12 +86,21 @@ export const Route = createFileRoute("/")({
             },
             {
               "@type": "ItemList",
-              name: "Signature Collection",
-              itemListElement: [
-                { "@type": "Product", name: "Radiance Glow Serum", category: "Skincare", description: "Vitamin C + Rose Hip Oil complex", offers: { "@type": "Offer", price: 78, priceCurrency: "USD", availability: "https://schema.org/InStock" } },
-                { "@type": "Product", name: "Velvet Lip Elixir", category: "Makeup", description: "Hydrating shea + natural pigments", offers: { "@type": "Offer", price: 42, priceCurrency: "USD", availability: "https://schema.org/InStock" } },
-                { "@type": "Product", name: "Pearl Luminosity Cream", category: "Skincare", description: "Pearl extract + hyaluronic acid", offers: { "@type": "Offer", price: 95, priceCurrency: "USD", availability: "https://schema.org/InStock" } },
-              ],
+              name: "Lumina Beauty Signature Collection",
+              itemListElement: products.map((p, i) => ({
+                "@type": "ListItem",
+                position: i + 1,
+                item: {
+                  "@type": "Product",
+                  name: p.name,
+                  category: p.category,
+                  description: p.desc,
+                  image: `${SITE_URL}${p.img}`,
+                  url: `${SITE_URL}/products/${p.slug}`,
+                  brand: { "@type": "Brand", name: "Lumina Beauty" },
+                  offers: { "@type": "Offer", price: p.price, priceCurrency: "USD", availability: "https://schema.org/InStock", url: `${SITE_URL}/products/${p.slug}` },
+                },
+              })),
             },
           ],
         }),
@@ -82,22 +108,6 @@ export const Route = createFileRoute("/")({
     ],
   }),
 });
-
-const products = [
-  { img: pSerum, badge: "Best Seller", category: "Skincare", name: "Radiance Glow Serum", desc: "Vitamin C + Rose Hip Oil complex", price: 78 },
-  { img: pLip, badge: "New", category: "Makeup", name: "Velvet Lip Elixir", desc: "Hydrating shea + natural pigments", price: 42 },
-  { img: pCream, badge: "Award Winner", category: "Skincare", name: "Pearl Luminosity Cream", desc: "Pearl extract + hyaluronic acid", price: 95 },
-  { img: pBronzer, badge: "Trending", category: "Makeup", name: "Golden Hour Bronzer", desc: "Micro-shimmer + mineral pigments", price: 55 },
-  { img: pToner, badge: null, category: "Skincare", name: "Rose Petal Toner", desc: "Damascena rose water + niacinamide", price: 48 },
-  { img: pMask, badge: "Limited", category: "Skincare", name: "Midnight Repair Mask", desc: "Retinol + black pearl + squalane", price: 88 },
-];
-
-const categories = [
-  { img: catSkincare, count: 42, name: "Skincare" },
-  { img: catMakeup, count: 28, name: "Makeup" },
-  { img: catHair, count: 19, name: "Hair Care" },
-  { img: catBody, count: 15, name: "Body Care" },
-];
 
 function Logo() {
   return (
@@ -196,12 +206,12 @@ function Story() {
         <Reveal variant="left" className="lg:col-span-5 relative">
           <div className="aspect-[3/4] rounded-3xl overflow-hidden group">
             <Reveal variant="zoom" as="div" className="w-full h-full">
-              <img
+              <SmartImage
                 src={storyImg}
-                alt="Elegant woman with luminous glowing skin in warm golden light"
-                loading="lazy"
+                alt="Founder of Lumina Beauty — elegant woman with luminous, glowing skin in warm golden light"
                 width={1024}
                 height={1365}
+                wrapperClassName="w-full h-full"
                 className="w-full h-full object-cover grayscale-[0.2] sepia-[0.1] group-hover:grayscale-0 group-hover:sepia-0 group-hover:scale-[1.03] transition-all duration-1000"
               />
             </Reveal>
@@ -246,7 +256,7 @@ function Products() {
         {products.map((p) => (
           <article key={p.name} className="product-card-hover group relative bg-surface border border-border rounded-3xl overflow-hidden">
             <div className="relative aspect-[4/5] overflow-hidden bg-background">
-              <img src={p.img} alt={p.name} loading="lazy" width={800} height={1024} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+              <SmartImage src={p.img} alt={p.alt} width={800} height={1024} wrapperClassName="w-full h-full" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
               {p.badge && (
                 <span className="absolute top-4 left-4 text-[10px] uppercase tracking-[0.2em] bg-primary text-primary-foreground rounded-full px-3 py-1.5">
                   {p.badge}
@@ -374,9 +384,9 @@ function BeforeAfter() {
           onTouchMove={(e) => updateFromX(e.touches[0].clientX)}
           onTouchEnd={() => setDragging(false)}
         >
-          <img src={afterImg} alt="After 14 days" loading="lazy" width={1024} height={1280} className="absolute inset-0 w-full h-full object-cover pointer-events-none" />
+          <img src={afterImg} alt="Lumina Radiance Serum after 14 days — visible glow and even skin tone" loading="lazy" width={1024} height={1280} className="absolute inset-0 w-full h-full object-cover pointer-events-none" />
           <div className="absolute inset-0 overflow-hidden pointer-events-none" style={{ width: `${pos}%` }}>
-            <img src={beforeImg} alt="Before" loading="lazy" width={1024} height={1280} className="absolute inset-0 h-full object-cover" style={{ width: `${(100 / pos) * 100}%`, maxWidth: "none" }} />
+            <img src={beforeImg} alt="Skin before using Lumina Radiance Serum — uneven tone and dullness" loading="lazy" width={1024} height={1280} className="absolute inset-0 h-full object-cover" style={{ width: `${(100 / pos) * 100}%`, maxWidth: "none" }} />
           </div>
           <span className="absolute top-6 left-1/2 -translate-x-1/2 text-[10px] uppercase tracking-[0.3em] glass-card rounded-full px-4 py-2 text-ivory pointer-events-none">Drag to Compare</span>
           <span className="absolute bottom-6 left-6 text-[10px] uppercase tracking-[0.3em] glass-card rounded-full px-4 py-2 text-ivory pointer-events-none">Before</span>
@@ -402,7 +412,7 @@ function Testimonial() {
       </Reveal>
       <Reveal variant="scale" delay={120} className="mt-12 md:mt-16 relative glass-card rounded-3xl p-8 sm:p-10 md:p-12 rose-gold-glow">
         <span className="absolute -top-6 sm:-top-8 left-1/2 -translate-x-1/2 font-display text-7xl sm:text-9xl text-rose-gold leading-none">"</span>
-        <img src={testimonialImg} alt="Sarah Mitchell" loading="lazy" width={800} height={800} className="mx-auto w-16 h-16 sm:w-20 sm:h-20 rounded-full object-cover ring-2 ring-rose-gold" />
+        <SmartImage src={testimonialImg} alt="Sarah Mitchell, verified Lumina Beauty customer from New York" width={800} height={800} wrapperClassName="mx-auto w-16 h-16 sm:w-20 sm:h-20 rounded-full ring-2 ring-rose-gold" className="w-full h-full object-cover" />
         <p className="mt-6 sm:mt-8 font-display italic text-balance leading-snug text-ivory" style={{ fontSize: "clamp(1.125rem, 3vw, 1.875rem)" }}>
           "The Radiance Serum transformed my skin in just two weeks. I've never received so many compliments. Lumina is the only brand I trust."
         </p>
@@ -425,7 +435,7 @@ function Categories() {
       <Reveal stagger className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5 md:gap-6">
         {categories.map((c) => (
           <a key={c.name} href="#products" className="product-card-hover group relative aspect-[3/4] rounded-3xl overflow-hidden block">
-            <img src={c.img} alt={c.name} loading="lazy" width={1024} height={1280} className="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
+            <SmartImage src={c.img} alt={c.alt} width={1024} height={1280} wrapperClassName="absolute inset-0 w-full h-full" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
             <div className="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-transparent" />
             <div className="absolute inset-0 p-6 flex flex-col justify-end">
               <span className="text-[10px] uppercase tracking-[0.3em] text-rose-gold">{c.count} Products</span>
