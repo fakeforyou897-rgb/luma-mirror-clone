@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useCallback, useEffect, useRef, useState } from "react";
+import { Reveal } from "@/components/Reveal";
 import heroImg from "@/assets/hero.jpg";
 import storyImg from "@/assets/story.jpg";
 import pSerum from "@/assets/p-serum.jpg";
@@ -130,24 +131,26 @@ function Story() {
     <section id="about" className="relative py-20 md:py-32 px-5 sm:px-6 lg:px-10 max-w-7xl mx-auto overflow-hidden">
       <div className="absolute top-0 right-0 w-[500px] h-[500px] pointer-events-none" style={{ background: "radial-gradient(circle, rgba(232,180,184,0.04) 0%, transparent 70%)" }} aria-hidden />
       <div className="grid lg:grid-cols-12 gap-10 md:gap-16 items-start">
-        <div className="lg:col-span-5 relative">
+        <Reveal variant="left" className="lg:col-span-5 relative">
           <div className="aspect-[3/4] rounded-3xl overflow-hidden group">
-            <img
-              src={storyImg}
-              alt="Elegant woman with luminous glowing skin in warm golden light"
-              loading="lazy"
-              width={1024}
-              height={1365}
-              className="w-full h-full object-cover grayscale-[0.2] sepia-[0.1] group-hover:grayscale-0 group-hover:sepia-0 group-hover:scale-[1.03] transition-all duration-1000"
-            />
+            <Reveal variant="zoom" as="div" className="w-full h-full">
+              <img
+                src={storyImg}
+                alt="Elegant woman with luminous glowing skin in warm golden light"
+                loading="lazy"
+                width={1024}
+                height={1365}
+                className="w-full h-full object-cover grayscale-[0.2] sepia-[0.1] group-hover:grayscale-0 group-hover:sepia-0 group-hover:scale-[1.03] transition-all duration-1000"
+              />
+            </Reveal>
           </div>
           <div className="absolute -bottom-8 -right-8 hidden md:block max-w-xs glass-card rounded-2xl p-6 rose-gold-glow">
             <p className="font-display italic text-lg leading-snug text-ivory">
               "Beauty is not about perfection. It's about confidence in your own luminous skin."
             </p>
           </div>
-        </div>
-        <div className="lg:col-span-7">
+        </Reveal>
+        <Reveal variant="right" delay={150} className="lg:col-span-7">
           <span className="text-[10px] uppercase tracking-[0.5em] text-rose-gold font-bold">Our Story</span>
           <h2 className="mt-5 font-display text-balance leading-[0.95] text-ivory font-light" style={{ fontSize: "clamp(2.25rem, 6vw, 5rem)" }}>
             Born from Nature,<br />Refined by Science.
@@ -163,7 +166,7 @@ function Story() {
               </div>
             ))}
           </div>
-        </div>
+        </Reveal>
       </div>
     </section>
   );
@@ -172,12 +175,12 @@ function Story() {
 function Products() {
   return (
     <section id="products" className="relative py-20 md:py-32 px-5 sm:px-6 lg:px-10 max-w-7xl mx-auto">
-      <div className="text-center max-w-2xl mx-auto mb-14 md:mb-20">
+      <Reveal className="text-center max-w-2xl mx-auto mb-14 md:mb-20">
         <span className="text-[10px] uppercase tracking-[0.4em] text-rose-gold">Best Sellers</span>
         <h2 className="mt-4 font-display text-ivory" style={{ fontSize: "clamp(2.25rem, 6vw, 4rem)" }}>Signature <em className="shimmer-text not-italic italic font-light">Collection.</em></h2>
         <p className="mt-5 md:mt-6 text-sm md:text-base text-muted-foreground">Our most-loved formulas, trusted by thousands.</p>
-      </div>
-      <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+      </Reveal>
+      <Reveal stagger className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
         {products.map((p) => (
           <article key={p.name} className="product-card-hover group relative bg-surface border border-border rounded-3xl overflow-hidden">
             <div className="relative aspect-[4/5] overflow-hidden bg-background">
@@ -204,7 +207,7 @@ function Products() {
             </div>
           </article>
         ))}
-      </div>
+      </Reveal>
     </section>
   );
 }
@@ -253,13 +256,13 @@ function Differences() {
   ];
   return (
     <section className="relative py-20 md:py-32 px-5 sm:px-6 lg:px-10 max-w-7xl mx-auto">
-      <div className="text-center max-w-3xl mx-auto mb-14 md:mb-20">
+      <Reveal className="text-center max-w-3xl mx-auto mb-14 md:mb-20">
         <span className="text-[10px] uppercase tracking-[0.4em] text-rose-gold">Why Lumina</span>
         <h2 className="mt-5 md:mt-6 font-display text-ivory leading-[0.95]" style={{ fontSize: "clamp(2.5rem, 8vw, 6rem)" }}>
           The Lumina<br />Difference.
         </h2>
-      </div>
-      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+      </Reveal>
+      <Reveal stagger className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
         {items.map((it) => (
           <div key={it.t} className="glass-card rounded-3xl p-8 transition-all duration-500 hover:rose-gold-glow hover:-translate-y-1 group">
             <div className="w-14 h-14 rounded-2xl bg-surface-2 border border-border flex items-center justify-center text-rose-gold group-hover:scale-110 transition-transform">
@@ -269,7 +272,7 @@ function Differences() {
             <p className="mt-3 text-sm text-muted-foreground leading-relaxed">{it.d}</p>
           </div>
         ))}
-      </div>
+      </Reveal>
     </section>
   );
 }
@@ -294,33 +297,35 @@ function BeforeAfter() {
 
   return (
     <section id="results" className="relative py-20 md:py-32 px-5 sm:px-6 lg:px-10 max-w-6xl mx-auto">
-      <div className="text-center max-w-2xl mx-auto mb-12 md:mb-16">
+      <Reveal className="text-center max-w-2xl mx-auto mb-12 md:mb-16">
         <span className="text-[10px] uppercase tracking-[0.4em] text-rose-gold">Real Results</span>
         <h2 className="mt-4 font-display text-ivory" style={{ fontSize: "clamp(2.25rem, 6vw, 4rem)" }}>Before <em className="shimmer-text not-italic italic font-light">& After.</em></h2>
         <p className="mt-5 md:mt-6 text-sm md:text-base text-muted-foreground">Unretouched. Unfiltered. Real Lumina users, real transformations.</p>
-      </div>
-      <div
-        ref={ref}
-        className="relative aspect-[4/3] md:aspect-[16/10] w-full rounded-3xl overflow-hidden rose-gold-glow select-none cursor-ew-resize"
-        onMouseDown={(e) => { setDragging(true); updateFromX(e.clientX); }}
-        onMouseMove={(e) => { if (dragging) updateFromX(e.clientX); }}
-        onTouchStart={(e) => { setDragging(true); updateFromX(e.touches[0].clientX); }}
-        onTouchMove={(e) => updateFromX(e.touches[0].clientX)}
-        onTouchEnd={() => setDragging(false)}
-      >
-        <img src={afterImg} alt="After 14 days" loading="lazy" width={1024} height={1280} className="absolute inset-0 w-full h-full object-cover pointer-events-none" />
-        <div className="absolute inset-0 overflow-hidden pointer-events-none" style={{ width: `${pos}%` }}>
-          <img src={beforeImg} alt="Before" loading="lazy" width={1024} height={1280} className="absolute inset-0 h-full object-cover" style={{ width: `${(100 / pos) * 100}%`, maxWidth: "none" }} />
-        </div>
-        <span className="absolute top-6 left-1/2 -translate-x-1/2 text-[10px] uppercase tracking-[0.3em] glass-card rounded-full px-4 py-2 text-ivory pointer-events-none">Drag to Compare</span>
-        <span className="absolute bottom-6 left-6 text-[10px] uppercase tracking-[0.3em] glass-card rounded-full px-4 py-2 text-ivory pointer-events-none">Before</span>
-        <span className="absolute bottom-6 right-6 text-[10px] uppercase tracking-[0.3em] bg-primary text-primary-foreground rounded-full px-4 py-2 pointer-events-none">After — 14 Days</span>
-        <div className="absolute top-0 bottom-0 w-px bg-ivory/80 pointer-events-none" style={{ left: `${pos}%` }}>
-          <div className="absolute top-1/2 -translate-y-1/2 -translate-x-1/2 w-11 h-11 rounded-full bg-primary text-primary-foreground flex items-center justify-center rose-gold-glow">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M8 7l-5 5 5 5M16 7l5 5-5 5"/></svg>
+      </Reveal>
+      <Reveal variant="scale">
+        <div
+          ref={ref}
+          className="relative aspect-[4/3] md:aspect-[16/10] w-full rounded-3xl overflow-hidden rose-gold-glow select-none cursor-ew-resize"
+          onMouseDown={(e) => { setDragging(true); updateFromX(e.clientX); }}
+          onMouseMove={(e) => { if (dragging) updateFromX(e.clientX); }}
+          onTouchStart={(e) => { setDragging(true); updateFromX(e.touches[0].clientX); }}
+          onTouchMove={(e) => updateFromX(e.touches[0].clientX)}
+          onTouchEnd={() => setDragging(false)}
+        >
+          <img src={afterImg} alt="After 14 days" loading="lazy" width={1024} height={1280} className="absolute inset-0 w-full h-full object-cover pointer-events-none" />
+          <div className="absolute inset-0 overflow-hidden pointer-events-none" style={{ width: `${pos}%` }}>
+            <img src={beforeImg} alt="Before" loading="lazy" width={1024} height={1280} className="absolute inset-0 h-full object-cover" style={{ width: `${(100 / pos) * 100}%`, maxWidth: "none" }} />
+          </div>
+          <span className="absolute top-6 left-1/2 -translate-x-1/2 text-[10px] uppercase tracking-[0.3em] glass-card rounded-full px-4 py-2 text-ivory pointer-events-none">Drag to Compare</span>
+          <span className="absolute bottom-6 left-6 text-[10px] uppercase tracking-[0.3em] glass-card rounded-full px-4 py-2 text-ivory pointer-events-none">Before</span>
+          <span className="absolute bottom-6 right-6 text-[10px] uppercase tracking-[0.3em] bg-primary text-primary-foreground rounded-full px-4 py-2 pointer-events-none">After — 14 Days</span>
+          <div className="absolute top-0 bottom-0 w-px bg-ivory/80 pointer-events-none" style={{ left: `${pos}%` }}>
+            <div className="absolute top-1/2 -translate-y-1/2 -translate-x-1/2 w-11 h-11 rounded-full bg-primary text-primary-foreground flex items-center justify-center rose-gold-glow">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M8 7l-5 5 5 5M16 7l5 5-5 5"/></svg>
+            </div>
           </div>
         </div>
-      </div>
+      </Reveal>
       <p className="mt-6 text-center text-xs uppercase tracking-[0.3em] text-muted-foreground">Lumina Radiance Serum — 14 Day Result</p>
     </section>
   );
@@ -329,9 +334,11 @@ function BeforeAfter() {
 function Testimonial() {
   return (
     <section className="relative py-20 md:py-32 px-5 sm:px-6 lg:px-10 max-w-5xl mx-auto text-center">
-      <span className="text-[10px] uppercase tracking-[0.4em] text-rose-gold">Testimonials</span>
-      <h2 className="mt-4 font-display text-ivory" style={{ fontSize: "clamp(2.25rem, 6vw, 4rem)" }}>What Our Clients <em className="shimmer-text not-italic italic font-light">Say.</em></h2>
-      <div className="mt-12 md:mt-16 relative glass-card rounded-3xl p-8 sm:p-10 md:p-12 rose-gold-glow">
+      <Reveal>
+        <span className="text-[10px] uppercase tracking-[0.4em] text-rose-gold">Testimonials</span>
+        <h2 className="mt-4 font-display text-ivory" style={{ fontSize: "clamp(2.25rem, 6vw, 4rem)" }}>What Our Clients <em className="shimmer-text not-italic italic font-light">Say.</em></h2>
+      </Reveal>
+      <Reveal variant="scale" delay={120} className="mt-12 md:mt-16 relative glass-card rounded-3xl p-8 sm:p-10 md:p-12 rose-gold-glow">
         <span className="absolute -top-6 sm:-top-8 left-1/2 -translate-x-1/2 font-display text-7xl sm:text-9xl text-rose-gold leading-none">"</span>
         <img src={testimonialImg} alt="Sarah Mitchell" loading="lazy" width={800} height={800} className="mx-auto w-16 h-16 sm:w-20 sm:h-20 rounded-full object-cover ring-2 ring-rose-gold" />
         <p className="mt-6 sm:mt-8 font-display italic text-balance leading-snug text-ivory" style={{ fontSize: "clamp(1.125rem, 3vw, 1.875rem)" }}>
@@ -341,7 +348,7 @@ function Testimonial() {
           <div className="font-display text-lg sm:text-xl text-ivory">Sarah Mitchell</div>
           <div className="text-[10px] uppercase tracking-[0.3em] text-muted-foreground mt-1">New York, USA</div>
         </div>
-      </div>
+      </Reveal>
     </section>
   );
 }
@@ -349,11 +356,11 @@ function Testimonial() {
 function Categories() {
   return (
     <section className="relative py-20 md:py-32 px-5 sm:px-6 lg:px-10 max-w-7xl mx-auto">
-      <div className="text-center max-w-2xl mx-auto mb-14 md:mb-20">
+      <Reveal className="text-center max-w-2xl mx-auto mb-14 md:mb-20">
         <span className="text-[10px] uppercase tracking-[0.4em] text-rose-gold">Shop by Category</span>
         <h2 className="mt-4 font-display text-ivory" style={{ fontSize: "clamp(2.25rem, 6vw, 4rem)" }}>Explore the <em className="shimmer-text not-italic italic font-light">Collection.</em></h2>
-      </div>
-      <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5 md:gap-6">
+      </Reveal>
+      <Reveal stagger className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5 md:gap-6">
         {categories.map((c) => (
           <a key={c.name} href="#products" className="product-card-hover group relative aspect-[3/4] rounded-3xl overflow-hidden block">
             <img src={c.img} alt={c.name} loading="lazy" width={1024} height={1280} className="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
@@ -367,7 +374,7 @@ function Categories() {
             </div>
           </a>
         ))}
-      </div>
+      </Reveal>
     </section>
   );
 }
@@ -381,7 +388,7 @@ function Newsletter() {
         aria-hidden
       />
       <div className="max-w-4xl mx-auto relative z-10">
-        <div className="glass-card rounded-[2rem] md:rounded-[2.5rem] p-8 sm:p-12 md:p-20 text-center relative overflow-hidden">
+        <Reveal variant="scale" className="glass-card rounded-[2rem] md:rounded-[2.5rem] p-8 sm:p-12 md:p-20 text-center relative overflow-hidden">
           {/* Corner accent brackets */}
           <div className="absolute top-6 left-6 w-12 h-12 border-t border-l border-rose-gold/20 rounded-tl-2xl pointer-events-none" />
           <div className="absolute top-6 right-6 w-12 h-12 border-t border-r border-rose-gold/20 rounded-tr-2xl pointer-events-none" />
@@ -414,7 +421,7 @@ function Newsletter() {
             </div>
             <p className="text-[10px] text-muted-foreground/60 mt-4 uppercase tracking-widest">No spam, ever. Unsubscribe anytime.</p>
           </form>
-        </div>
+        </Reveal>
       </div>
     </section>
   );
