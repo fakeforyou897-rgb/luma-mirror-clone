@@ -256,13 +256,13 @@ function Differences() {
   ];
   return (
     <section className="relative py-20 md:py-32 px-5 sm:px-6 lg:px-10 max-w-7xl mx-auto">
-      <div className="text-center max-w-3xl mx-auto mb-14 md:mb-20">
+      <Reveal className="text-center max-w-3xl mx-auto mb-14 md:mb-20">
         <span className="text-[10px] uppercase tracking-[0.4em] text-rose-gold">Why Lumina</span>
         <h2 className="mt-5 md:mt-6 font-display text-ivory leading-[0.95]" style={{ fontSize: "clamp(2.5rem, 8vw, 6rem)" }}>
           The Lumina<br />Difference.
         </h2>
-      </div>
-      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+      </Reveal>
+      <Reveal stagger className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
         {items.map((it) => (
           <div key={it.t} className="glass-card rounded-3xl p-8 transition-all duration-500 hover:rose-gold-glow hover:-translate-y-1 group">
             <div className="w-14 h-14 rounded-2xl bg-surface-2 border border-border flex items-center justify-center text-rose-gold group-hover:scale-110 transition-transform">
@@ -272,7 +272,7 @@ function Differences() {
             <p className="mt-3 text-sm text-muted-foreground leading-relaxed">{it.d}</p>
           </div>
         ))}
-      </div>
+      </Reveal>
     </section>
   );
 }
